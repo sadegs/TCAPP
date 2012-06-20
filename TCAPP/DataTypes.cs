@@ -24,8 +24,7 @@ namespace TCAPP
         IN = 30,
         OUT = 31,
         LUNCH_OUT = 35,
-        LUNCH_IN = 34,
-        OTHER = 1
+        LUNCH_IN = 34
     }
 
     
