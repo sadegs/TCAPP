@@ -186,54 +186,73 @@ namespace TCAPPServer.Domain
     [Serializable]
     public class TimeEntry
     {
+        public virtual int Id { get; set; }
+
         private string _rawEntryString;
         private int _number;
-        public int Number
+        public virtual int Number
         {
             get { return _number; }
         }
 
         private int _machineId;
-        public int MachineId
+        public virtual int MachineId
         {
             get { return _machineId; }
+            set { _machineId = value; }
         }
 
         private int _employeeNumber;
-        public int EmployeeNumber
+        public virtual int EmployeeNumber
         {
             get { return _employeeNumber; }
+            set { _employeeNumber = value; }
         }
 
         private string _name;
-        public string Name
+        public virtual string Name
         {
             get { return _name; }
+            set { _name = value; }
         }
 
         private int _managerId;
-        public int ManagerId
+        public virtual int ManagerId
         {
             get { return _managerId; }
+            set { _managerId = value; }
         }
 
         private int _mode;
-        public int Mode
+        public virtual int Mode
         {
             get { return _mode; }
+            set { _mode = value; }
         }
 
         private DateTime _dateTime;
-        public DateTime DateTime
+        public virtual DateTime DateTime
         {
             get { return _dateTime; }
+            set { _dateTime = value; } 
         }
 
-        public string RawEntryString { get { return _rawEntryString; } }
-
-        public TimeEntry(string rawEntryString)
+        public virtual string RawEntryString
         {
-            _rawEntryString = rawEntryString;
+            get
+            {
+                return _rawEntryString;
+            }
+            set 
+            {
+                _rawEntryString = value;
+                parseRawEntryString();
+            }
+        }
+
+
+        private void parseRawEntryString()
+        {
             string[] colums = _rawEntryString.Split('\t');
             _number = int.Parse(colums[0]);
             _machineId = int.Parse(colums[1]);
@@ -244,6 +263,15 @@ namespace TCAPPServer.Domain
             _dateTime = DateTime.Parse(colums[6]);
         }
         
+    }
+    #endregion
+
+    #region RawEntry
+    [Serializable]
+    public class RawEntry
+    {
+        public virtual int Id { get; set; }
+        public virtual string Entry { get; set; }
     }
     #endregion
 

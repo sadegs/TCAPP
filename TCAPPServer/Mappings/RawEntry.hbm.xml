@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="TCAPPServer"
+                   namespace="TCAPPServer.Domain">
+
+  <class name="RawEntry">
+    <id name="Id" unsaved-value="0">
+      <generator class="hilo"/>
+    </id>
+    <property name="Entry"/>
+  </class>
+  
+</hibernate-mapping>
