@@ -36,6 +36,8 @@
             this.btnPrintWk = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cbxIds = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -107,11 +109,27 @@
             this.cbxIds.Size = new System.Drawing.Size(47, 21);
             this.cbxIds.TabIndex = 6;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(422, 15);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(422, 42);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 356);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cbxIds);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPrintWk);
@@ -121,6 +139,7 @@
             this.Controls.Add(this.txtTimeFile);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,6 +155,8 @@
         private System.Windows.Forms.Button btnPrintWk;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxIds;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
 

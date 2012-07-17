@@ -86,11 +86,23 @@ namespace TCAPP
             {
                 MessageBox.Show("Id: " + cbxIds.SelectedItem + " does not exist");
             }
-            PayStub payStub = employee.GetWork((new DateTime(2012, 6, 10)), DateTime.Now);
+
+            DateTime dt = dateTimePicker1.Value;
+            DateTime start = new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0);
+            dt = dateTimePicker2.Value;
+            DateTime end = new DateTime(dt.Year, dt.Month, dt.Day, 23, 59, 59);
+
+            PayStub payStub = employee.GetWork(start, end);
             
             txtOutput.Text = payStub.Summary + Environment.NewLine;
             txtOutput.Text += "Total Hours: " + Math.Round(payStub.TotalHours, 2) + "\t$" + 
                 payStub.GetPay( Business.PayRate[employee.Id - 1] );
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = DateTime.Now.Subtract(new TimeSpan(7, 0, 0, 0));
+            dateTimePicker2.Value = DateTime.Now;
         }
     }
 
